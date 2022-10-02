@@ -58,7 +58,7 @@
         # CTRL+X to exit
 
    5) Activate post-receive
-        chmod +X post-receive 
+        chmod +x post-receive 
    6) ADD remote repo to local repo
         git remote add prod user@server.com:/path/to/git/location
    7) 

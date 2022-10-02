@@ -1,0 +1,4 @@
+#!/bin/sh
+
+#CHECKOUT
+git --work-tree=/path/to/project/location --git-dir=/path/to/git/dir checkout -f
