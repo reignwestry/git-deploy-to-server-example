@@ -25,6 +25,9 @@ do
                 echo "## PROJECT UPLOADED AND DEPLOYED TO ${BRANCH} ##"
                 echo "################################################"
 
+
+                echo "GIT REMOTE REPO WORKING"
+
         else
                 echo "Ref $ref received. Doing nothing: only the ${BRANCH} branch may be deployed on this server."
 
