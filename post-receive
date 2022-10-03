@@ -24,7 +24,10 @@ do
                 echo "################################################"
                 echo "## PROJECT UPLOADED AND DEPLOYED TO ${BRANCH} ##"
                 echo "################################################"
+
         else
                 echo "Ref $ref received. Doing nothing: only the ${BRANCH} branch may be deployed on this server."
+
+                
         fi
 done
