@@ -1,7 +1,7 @@
 #!/bin/bash
 
 target_branch="production"
-working_tree="../../public_html/sub_domains/tester3"
+working_tree="~/public_html/sub_domains/tester3"
 
 # TODO : ADD NEW REMOTE TO YOUR LOCAL REPO
 # TODO : CREATE PRODUCTION BRANCH
