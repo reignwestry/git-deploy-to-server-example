@@ -1,36 +1,31 @@
-#!/bin/sh
+#!/bin/bash
+
+target_branch="production"
+working_tree="../../public_html/sub_domains/tester3"
+
+# TODO : ADD NEW REMOTE TO YOUR LOCAL REPO
+# TODO : CREATE PRODUCTION BRANCH
+# TODO : git branch production
+
+# TODO : DO ALL DEVELOPMENT in Development BRANCH and merge into production to deploy to server
+# TODO : (production) git merge development
+# TODO : Simply push your commits to the newly add remote 
 
 
-#for debugging
-#set -ex
-
-# the work tree, where the checkout/deploy should happen
-TARGET="reigndes@reignwestry.com:~/public_html/sub_domains/tester3"
-
-# the location of the .git directory
-GIT_DIR="reigndes@reignwestry.com:~/public_html/sub_domains/tester3-git-deploy-test.git"
-
-
-BRANCH="master"
-
-while read oldrev newrev ref
+while read oldrev newrev refname
 do
-        # only checking out the master (or whatever branch you would like to deploy)
-        if [ "$ref" = "refs/heads/$BRANCH" ];
-        then
-                echo "Ref $ref received. Deploying ${BRANCH} branch on server..."
-                git --work-tree="${TARGET}" --git-dir="${GIT_DIR}" checkout -f ${BRANCH}
-
-                echo "################################################"
-                echo "## PROJECT UPLOADED AND DEPLOYED TO ${BRANCH} ##"
-                echo "################################################"
-
-
-                echo "GIT REMOTE REPO WORKING"
-
-        else
-                echo "Ref $ref received. Doing nothing: only the ${BRANCH} branch may be deployed on this server."
-
-                
-        fi
+    branch=$(git rev-parse --symbolic --abbrev-ref $refname)
+    if [ -n "$branch" ] && [ "$target_branch" == "$branch" ]; then
+    
+       GIT_WORK_TREE=$working_tree git checkout $target_branch -f
+       NOW=$(date +"%Y%m%d-%H%M")
+       git tag release_$NOW $target_branch
+    
+       echo "   /==============================="
+       echo "   | DEPLOYMENT COMPLETED"
+       echo "   | Target branch: $target_branch"
+       echo "   | Target folder: $working_tree"
+       echo "   | Tag name     : release_$NOW"
+       echo "   \=============================="
+    fi
 done

@@ -1,4 +1,31 @@
-#!/bin/sh
+#!/bin/bash
 
-#CHECKOUT
-git --work-tree=/path/to/project/location --git-dir=/path/to/git/dir checkout -f
+target_branch="production"
+working_tree="PATH_TO_DEPLOY"
+
+# TODO : ADD NEW REMOTE TO YOUR LOCAL REPO
+# TODO : CREATE PRODUCTION BRANCH
+# TODO : git branch production
+
+# TODO : DO ALL DEVELOPMENT in Development BRANCH and merge into production to deploy to server
+# TODO : (production) git merge development
+# TODO : Simply push your commits to the newly add remote 
+
+
+while read oldrev newrev refname
+do
+    branch=$(git rev-parse --symbolic --abbrev-ref $refname)
+    if [ -n "$branch" ] && [ "$target_branch" == "$branch" ]; then
+    
+       GIT_WORK_TREE=$working_tree git checkout $target_branch -f
+       NOW=$(date +"%Y%m%d-%H%M")
+       git tag release_$NOW $target_branch
+    
+       echo "   /==============================="
+       echo "   | DEPLOYMENT COMPLETED"
+       echo "   | Target branch: $target_branch"
+       echo "   | Target folder: $working_tree"
+       echo "   | Tag name     : release_$NOW"
+       echo "   \=============================="
+    fi
+done

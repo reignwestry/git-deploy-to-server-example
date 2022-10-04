@@ -11,14 +11,15 @@
    1) create a ssh key
    2) copy key to server
    3) ssh-copy-id username@website.com
-   4) login ssh username@website.com
+   4) ssh-copy-id -i ~/.ssh/mykey user@host --uploads key to server
+   5) login ssh username@website.com
 
 
-   5) copy files to remote 
+   6) copy files to remote 
       1) scp text.html user@server.com:/var/www
 
 
-   6) copy folders to remote 
+   7) copy folders to remote 
 
 
 3) setup git deployment via ssh
