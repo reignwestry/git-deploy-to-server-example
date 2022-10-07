@@ -26,10 +26,15 @@ do
                 echo "################################################"
 
 
-                echo "GIT REMOTE REPO WORKING"
+
 
         else
                 echo "Ref $ref received. Doing nothing: only the ${BRANCH} branch may be deployed on this server."
+                echo "################################################"
+                echo "## PROJECT DID NOT UPLOAD ${BRANCH} ##"
+                echo "################################################"
+
+
 
                 
         fi

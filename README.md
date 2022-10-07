@@ -35,7 +35,7 @@
 
         #!/bin/sh
 
-        # --work-tree=/path/to/project/location ==== CHECKOUT FILES TO THIS location
+        /# --work-tree=/path/to/project/location ==== CHECKOUT FILES TO THIS location
         # --git-dir=/path/to/git/dir
         
         #CHECKOUT
@@ -55,8 +55,9 @@
         pm2 reload project/dir
 
 
-        # CTRL+O saves the file
-        # CTRL+X to exit
+        A) CTRL+O saves & asks to name the file
+        B) Press Enter
+        C) CTRL+X to exit
 
    5) Activate post-receive
         chmod +x post-receive 

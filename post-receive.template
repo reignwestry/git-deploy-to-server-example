@@ -27,5 +27,10 @@ do
        echo "   | Target folder: $working_tree"
        echo "   | Tag name     : release_$NOW"
        echo "   \=============================="
+    else
+                echo "Ref $refname received. Doing nothing: only the ${BRANCH} branch may be deployed on this server."
+                echo "################################################"
+                echo "## PROJECT DID NOT UPLOAD ${BRANCH} ##"
+                echo "################################################"
     fi
 done
