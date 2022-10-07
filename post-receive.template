@@ -17,7 +17,8 @@ do
     branch=$(git rev-parse --symbolic --abbrev-ref $refname)
     if [ -n "$branch" ] && [ "$target_branch" == "$branch" ]; then
     
-       GIT_WORK_TREE=$working_tree git checkout $target_branch -f
+       GIT_WORK_TREE=$working_tree 
+       git checkout $target_branch -f
        NOW=$(date +"%Y%m%d-%H%M")
        git tag release_$NOW $target_branch
     
