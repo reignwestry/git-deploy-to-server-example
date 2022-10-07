@@ -10,7 +10,7 @@ working_tree="PATH_TO_DEPLOY"
 # TODO : DO ALL DEVELOPMENT in Development BRANCH and merge into production to deploy to server
 # TODO : (production) git merge development
 # TODO : Simply push your commits to the newly add remote 
-
+git checkout $target_branch -f
 
 while read oldrev newrev refname
 do
